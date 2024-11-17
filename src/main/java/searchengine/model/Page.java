@@ -1,11 +1,30 @@
 package searchengine.model;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.IdGeneratorType;
+
+@Entity
+@Table(name = "pages")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Page {
 
-    Long id;
-    Long siteId;
-    String path;
-    int code;
-    StringBuilder content;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "site_id", nullable = false)
+    private Long siteId;
+
+    @Column(name = "path", columnDefinition = "TEXT", nullable = false)
+    private String path;
+
+    @Column(name = "code", columnDefinition = "INT", nullable = false)
+    private int code;
+
+    @Column(name = "content", columnDefinition = "MEDIUMTEXT", nullable = false)
+    private String content;
 
 }
