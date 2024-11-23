@@ -5,10 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.IdGeneratorType;
 
-@Entity
-@Table(name = "pages")
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "pages", indexes = {
+        @Index(name = "idx_path", columnList = "path")
+})
 public class Page {
 
     @Id
@@ -18,7 +21,7 @@ public class Page {
     @Column(name = "site_id", nullable = false)
     private Long siteId;
 
-    @Column(name = "path", columnDefinition = "TEXT", nullable = false)
+    @Column(name = "path", nullable = false)
     private String path;
 
     @Column(name = "code", columnDefinition = "INT", nullable = false)

@@ -11,21 +11,21 @@ public class Site {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "status", unique = true, nullable = false)
-    Status status;
+    private Status status;
 
     @Column(name = "status_time", nullable = false, columnDefinition = "DATETIME")
-    LocalDate statusTime;
+    private LocalDate statusTime;
 
     @Column(name = "last_error", nullable = false, columnDefinition = "TEXT")
-    String lastError;
+    private String lastError;
 
     @Column(name = "url", nullable = false, columnDefinition = "VARCHAR(255)")
-    String url;
+    private String url;
 
     @Column(name = "name", nullable = false, columnDefinition = "VARCHAR(255)")
-    String name;
+    private String name;
 
 }
